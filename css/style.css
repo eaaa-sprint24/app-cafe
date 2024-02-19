@@ -1,0 +1,44 @@
+body{
+    font-family: "MADE Outer Sans", sans-serif;
+    box-sizing: border-box;
+    background-color: #fffd7d;
+    color: #2c2929;
+}
+
+h1{
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: -0.5em;
+    margin-bottom: 2em;
+}
+
+h2{
+    text-align: center;
+    text-transform: uppercase;
+}
+
+article {
+    width: 100%;
+}
+
+hr {
+    border: 1px solid #2c2929;
+}
+
+article div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+article p {
+    margin-left: 0.5em;
+}
+
+article img {
+    /* border: 2px solid red; */
+    height: 2em;
+    width: auto;
+    margin: 1em;
+}
