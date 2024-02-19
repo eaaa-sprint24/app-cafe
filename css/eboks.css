@@ -1,0 +1,33 @@
+body {
+    font-family: "MADE Outer Sans", sans-serif;
+    background-color: #fffd7d;
+    color: #2c2929;
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column; /* Stack flex items vertically */
+}
+
+header {
+    flex-grow: 1; 
+    border: solid blue 2px;
+}
+article {
+    flex-grow: 2; 
+    border: solid rgb(255, 0, 0) 2px;
+}
+footer {
+    flex-grow: 1; 
+    border: solid rgb(4, 231, 0) 2px;
+}
+
+.box1 {
+    background-color: blue;
+}
+
+.box2 {
+    background-color: red; /* Example styling for box 2 */
+}
+
+.box3 {
+    background-color: green; /* Example styling for box 3 */
+}
