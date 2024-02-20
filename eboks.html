@@ -1,23 +1,282 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="da">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-boks</title>
     <link rel="stylesheet" href="css/eboks.css">
+    <link rel="stylesheet" href="css/overlay.css">
+    <script src = "js/overlay.js"></script>
 </head>
+
 <body>
-    he
     <header>
-        <div class="box1">box 1</div>
+        <h2>få hjælp til</h2>
+        <h1>e-boks</h1>
+        <p>Hvad har du brug for hjælp til?<br>Tryk på pilen i det felt du vil læse mere om</p>
     </header>
 
     <article>
-        <div class="box2">box 2</div>
+        <section id="section1" onclick=dropDown1()>
+            <p><b>1.</b> Hvad er Digital Post?</p>
+            <img id="img1" src="img/dropdown.png" alt="Information icon">
+        </section>
+        <div id="dropdown1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias qui eveniet error magni labore, soluta voluptate, corrupti reiciendis eum cum sequi quisquam sit distinctio. Quod id quis architecto ut accusantium.
+        Tempore qui accusamus, repellat alias omnis mollitia facere dignissimos obcaecati nobis porro dolores doloribus aliquam quaerat provident eos quod enim modi quidem, odio amet ratione numquam quis? Quidem, ab non.
+        Quam, architecto dolore? Fuga aspernatur doloremque corporis porro voluptatibus itaque eveniet dignissimos minus iste placeat! Quas nisi ad enim, voluptatum rerum repellendus dolorum aliquam tempore similique tempora voluptate nam provident?
+        Dolor accusantium minima atque sunt. Eius iure nam necessitatibus libero? Alias quidem praesentium magnam obcaecati voluptatem, at laudantium nesciunt quibusdam fuga dolor a quas rem perferendis ab ut dolore architecto.
+        Doloribus aut nisi, vitae voluptate sequi minus cupiditate molestiae dolorum aliquid reiciendis, a magnam quia molestias iusto labore. Ipsam tenetur sapiente accusamus modi velit laborum minus consectetur voluptatibus, facere explicabo?
+        Dolorum ea et beatae odio sint quasi aut quisquam tempora rem unde. Doloremque possimus necessitatibus quam consequatur incidunt atque harum cum nulla enim, similique unde deserunt hic, suscipit accusantium officia!
+        Laborum hic voluptatum obcaecati quo a, libero doloribus est ullam deserunt ad eum qui tenetur. Ipsam dicta ex illum similique eos, rerum, error velit debitis optio ratione eaque non obcaecati.
+        Quam nulla pariatur maiores ipsam reprehenderit quod, mollitia deleniti dolorem dolores quasi maxime veniam blanditiis itaque, illum labore nihil rerum neque aspernatur! Ab beatae quis, officiis magnam sequi inventore ipsa?
+        Molestiae iure nesciunt laboriosam sint expedita perspiciatis quibusdam vero aut dignissimos, veniam laborum dicta ipsam rem doloremque totam vitae, ullam ratione repellendus eligendi eos? Velit quas molestias minima libero id.
+        Tempore totam doloribus explicabo inventore voluptatum est mollitia optio numquam iure doloremque. Eos quas recusandae necessitatibus eveniet impedit possimus asperiores nostrum quos cupiditate corrupti iure ea, debitis doloribus aperiam dicta!
+        </div>
+        
+        <section id="section2" onclick=dropDown2()>
+            <p><b>2.</b> Hvor kan jeg læse min Digital Post</p>
+            <img id="img2" src="img/dropdown.png" alt="Elevator icon">
+        </section>
+        <div id="dropdown2"></div>
+        
+        <section id="section3" onclick=dropDown3()>
+            <p><b>3.</b> Jeg kan ikke se min offentlige post i e-Boks</p>
+            <img id="img3" src="img/dropdown.png" alt="Arrow icon">
+        </section>
+        <div id="dropdown3"></div>
+
+        <section id="section4" onclick=dropDown4()>
+            <p><b>4.</b> Hvad er forskellen på Digital Post og MitID</p>
+            <img id="img4" src="img/dropdown.png" alt="Door icon">
+        </section>
+        <div id="dropdown4"></div>
+
+        <section id="section5" onclick=dropDown5()>
+            <p><b>5.</b> Få adgang til Digital Post med udenlansk eID</p>
+            <img id="img5" src="img/dropdown.png" alt="Done icon">
+        </section>
+        <div id="dropdown5"></div>
+
+        <section id="section6" onclick=dropDown6()>
+            <p><b>6.</b> Digital Post in other languages</p>
+            <img id="img6" src="img/dropdown.png" alt="Done icon">
+        </section>
+        <div id="dropdown6"></div>
     </article>
 
     <footer>
-        <div class="box3">box 3</div>
+        <p class="buttontext">har du brug for mere hjælp?</p>
+        <div class="buttons">
+            <button id="nej"><b>NEJ</b><br>(Gå til hjem)</button>
+            <button id="ja"><b>JA</b><br>(Næste skridt)</button>
+        </div>
     </footer>
+
+    <div id="overlay">
+        <div id="overlayText">Tryk på skærmen</div>
+    </div>
+
+    <script>
+        function dropDown1() {
+            const img = document.getElementById('img1');
+            const headerParagraph = document.querySelector('header p');
+            const section = document.getElementById('section1');
+            const footer = document.querySelector('footer');
+            const dd = document.getElementById('dropdown1');
+            const allSectionsExceptTheSection = document.querySelectorAll('section:not(#section1)');
+            
+            if (dd.style.display === "flex") { // If dropdown is already displayed, reverse the effects
+                headerParagraph.innerHTML = "Hvad har du brug for hjælp til?<br>Tryk på pilen i det felt du vil læse mere om";
+                img.style.transform = "rotate(0deg)";
+                section.style.marginBottom= "";
+                section.style.borderRadius= "";
+                section.style.borderBottom= "";
+                footer.style.borderTop= "";
+                footer.style.backgroundColor= "";
+                dd.style.display= "none";
+                allSectionsExceptTheSection.forEach(section => {
+                    section.style.display = "flex"; // Show all sections again
+                });
+            } else {
+                headerParagraph.textContent = "Tryk på pilen igen for at vende tilbage til oversigten";
+                img.style.transform = "rotate(90deg)";
+                section.style.marginBottom= "0";
+                section.style.borderRadius= "5px 5px 0px 0px";
+                section.style.borderBottom= "solid 3px rgba(44, 41, 41, 0.7)";
+                dd.style.display= "flex";
+                allSectionsExceptTheSection.forEach(section => {
+                    section.style.display = "none"; // Hide all other sections
+                });
+            }
+        }
+            
+        function dropDown2() {
+            const img = document.getElementById('img2');
+            const headerParagraph = document.querySelector('header p');
+            const section = document.getElementById('section2');
+            const footer = document.querySelector('footer');
+            const dd = document.getElementById('dropdown2');
+            const allSectionsExceptTheSection = document.querySelectorAll('section:not(#section2)');
+            
+            if (dd.style.display === "flex") { // If dropdown is already displayed, reverse the effects
+                headerParagraph.innerHTML = "Hvad har du brug for hjælp til?<br>Tryk på pilen i det felt du vil læse mere om";
+                img.style.transform = "rotate(0deg)";
+                section.style.marginBottom= "";
+                section.style.borderRadius= "";
+                section.style.borderBottom= "";
+                footer.style.borderTop= "";
+                footer.style.backgroundColor= "";
+                dd.style.display= "none";
+                allSectionsExceptTheSection.forEach(section => {
+                    section.style.display = "flex"; // Show all sections again
+                });
+            } else {
+                headerParagraph.textContent = "Tryk på pilen igen for at vende tilbage til oversigten";
+                img.style.transform = "rotate(90deg)";
+                section.style.marginBottom= "0";
+                section.style.borderRadius= "5px 5px 0px 0px";
+                section.style.borderBottom= "solid 3px rgba(44, 41, 41, 0.7)";
+                dd.style.display= "flex";
+                allSectionsExceptTheSection.forEach(section => {
+                    section.style.display = "none"; // Hide all other sections
+                });
+            }
+        }
+            
+        function dropDown3() {
+            const img = document.getElementById('img3');
+            const headerParagraph = document.querySelector('header p');
+            const section = document.getElementById('section3');
+            const footer = document.querySelector('footer');
+            const dd = document.getElementById('dropdown3');
+            const allSectionsExceptTheSection = document.querySelectorAll('section:not(#section3)');
+            
+            if (dd.style.display === "flex") { // If dropdown is already displayed, reverse the effects
+                headerParagraph.innerHTML = "Hvad har du brug for hjælp til?<br>Tryk på pilen i det felt du vil læse mere om";
+                img.style.transform = "rotate(0deg)";
+                section.style.marginBottom= "";
+                section.style.borderRadius= "";
+                section.style.borderBottom= "";
+                footer.style.borderTop= "";
+                footer.style.backgroundColor= "";
+                dd.style.display= "none";
+                allSectionsExceptTheSection.forEach(section => {
+                    section.style.display = "flex"; // Show all sections again
+                });
+            } else {
+                headerParagraph.textContent = "Tryk på pilen igen for at vende tilbage til oversigten";
+                img.style.transform = "rotate(90deg)";
+                section.style.marginBottom= "0";
+                section.style.borderRadius= "5px 5px 0px 0px";
+                section.style.borderBottom= "solid 3px rgba(44, 41, 41, 0.7)";
+                dd.style.display= "flex";
+                allSectionsExceptTheSection.forEach(section => {
+                    section.style.display = "none"; // Hide all other sections
+                });
+            }
+        }
+            
+        function dropDown4() {
+            const img = document.getElementById('img4');
+            const headerParagraph = document.querySelector('header p');
+            const section = document.getElementById('section4');
+            const footer = document.querySelector('footer');
+            const dd = document.getElementById('dropdown4');
+            const allSectionsExceptTheSection = document.querySelectorAll('section:not(#section4)');
+            
+            if (dd.style.display === "flex") { // If dropdown is already displayed, reverse the effects
+                headerParagraph.innerHTML = "Hvad har du brug for hjælp til?<br>Tryk på pilen i det felt du vil læse mere om";
+                img.style.transform = "rotate(0deg)";
+                section.style.marginBottom= "";
+                section.style.borderRadius= "";
+                section.style.borderBottom= "";
+                footer.style.borderTop= "";
+                footer.style.backgroundColor= "";
+                dd.style.display= "none";
+                allSectionsExceptTheSection.forEach(section => {
+                    section.style.display = "flex"; // Show all sections again
+                });
+            } else {
+                headerParagraph.textContent = "Tryk på pilen igen for at vende tilbage til oversigten";
+                img.style.transform = "rotate(90deg)";
+                section.style.marginBottom= "0";
+                section.style.borderRadius= "5px 5px 0px 0px";
+                section.style.borderBottom= "solid 3px rgba(44, 41, 41, 0.7)";
+                dd.style.display= "flex";
+                allSectionsExceptTheSection.forEach(section => {
+                    section.style.display = "none"; // Hide all other sections
+                });
+            }
+        }
+            
+        function dropDown5() {
+            const img = document.getElementById('img5');
+            const headerParagraph = document.querySelector('header p');
+            const section = document.getElementById('section5');
+            const footer = document.querySelector('footer');
+            const dd = document.getElementById('dropdown5');
+            const allSectionsExceptTheSection = document.querySelectorAll('section:not(#section5)');
+            
+            if (dd.style.display === "flex") { // If dropdown is already displayed, reverse the effects
+                headerParagraph.innerHTML = "Hvad har du brug for hjælp til?<br>Tryk på pilen i det felt du vil læse mere om";
+                img.style.transform = "rotate(0deg)";
+                section.style.marginBottom= "";
+                section.style.borderRadius= "";
+                section.style.borderBottom= "";
+                footer.style.borderTop= "";
+                footer.style.backgroundColor= "";
+                dd.style.display= "none";
+                allSectionsExceptTheSection.forEach(section => {
+                    section.style.display = "flex"; // Show all sections again
+                });
+            } else {
+                headerParagraph.textContent = "Tryk på pilen igen for at vende tilbage til oversigten";
+                img.style.transform = "rotate(90deg)";
+                section.style.marginBottom= "0";
+                section.style.borderRadius= "5px 5px 0px 0px";
+                section.style.borderBottom= "solid 3px rgba(44, 41, 41, 0.7)";
+                dd.style.display= "flex";
+                allSectionsExceptTheSection.forEach(section => {
+                    section.style.display = "none"; // Hide all other sections
+                });
+            }
+        }
+            
+        function dropDown6() {
+            const img = document.getElementById('img6');
+            const headerParagraph = document.querySelector('header p');
+            const section = document.getElementById('section6');
+            const footer = document.querySelector('footer');
+            const dd = document.getElementById('dropdown6');
+            const allSectionsExceptTheSection = document.querySelectorAll('section:not(#section6)');
+            
+            if (dd.style.display === "flex") { // If dropdown is already displayed, reverse the effects
+                headerParagraph.innerHTML = "Hvad har du brug for hjælp til?<br>Tryk på pilen i det felt du vil læse mere om";
+                img.style.transform = "rotate(0deg)";
+                section.style.marginBottom= "";
+                section.style.borderRadius= "";
+                section.style.borderBottom= "";
+                footer.style.borderTop= "";
+                footer.style.backgroundColor= "";
+                dd.style.display= "none";
+                allSectionsExceptTheSection.forEach(section => {
+                    section.style.display = "flex"; // Show all sections again
+                });
+            } else {
+                headerParagraph.textContent = "Tryk på pilen igen for at vende tilbage til oversigten";
+                img.style.transform = "rotate(90deg)";
+                section.style.marginBottom= "0";
+                section.style.borderRadius= "5px 5px 0px 0px";
+                section.style.borderBottom= "solid 3px rgba(44, 41, 41, 0.7)";
+                dd.style.display= "flex";
+                allSectionsExceptTheSection.forEach(section => {
+                    section.style.display = "none"; // Hide all other sections
+                });
+            }
+        }
+        
+    </script>
+
 </body>
 </html>
