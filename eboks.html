@@ -19,23 +19,22 @@
 
     <article>
         <section id="section1" onclick=dropDown1()>
-            <p><b>1.</b> Hvad er Digital Post?</p>
+            <p><b>1.</b> Sådan finder du E-boks APP'en på din telefon/tablet</p>
             <img id="img1" src="img/dropdown.png" alt="Information icon">
         </section>
-        <div id="dropdown1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias qui eveniet error magni labore, soluta voluptate, corrupti reiciendis eum cum sequi quisquam sit distinctio. Quod id quis architecto ut accusantium.
-        Tempore qui accusamus, repellat alias omnis mollitia facere dignissimos obcaecati nobis porro dolores doloribus aliquam quaerat provident eos quod enim modi quidem, odio amet ratione numquam quis? Quidem, ab non.
-        Quam, architecto dolore? Fuga aspernatur doloremque corporis porro voluptatibus itaque eveniet dignissimos minus iste placeat! Quas nisi ad enim, voluptatum rerum repellendus dolorum aliquam tempore similique tempora voluptate nam provident?
-        Dolor accusantium minima atque sunt. Eius iure nam necessitatibus libero? Alias quidem praesentium magnam obcaecati voluptatem, at laudantium nesciunt quibusdam fuga dolor a quas rem perferendis ab ut dolore architecto.
-        Doloribus aut nisi, vitae voluptate sequi minus cupiditate molestiae dolorum aliquid reiciendis, a magnam quia molestias iusto labore. Ipsam tenetur sapiente accusamus modi velit laborum minus consectetur voluptatibus, facere explicabo?
-        Dolorum ea et beatae odio sint quasi aut quisquam tempora rem unde. Doloremque possimus necessitatibus quam consequatur incidunt atque harum cum nulla enim, similique unde deserunt hic, suscipit accusantium officia!
-        Laborum hic voluptatum obcaecati quo a, libero doloribus est ullam deserunt ad eum qui tenetur. Ipsam dicta ex illum similique eos, rerum, error velit debitis optio ratione eaque non obcaecati.
-        Quam nulla pariatur maiores ipsam reprehenderit quod, mollitia deleniti dolorem dolores quasi maxime veniam blanditiis itaque, illum labore nihil rerum neque aspernatur! Ab beatae quis, officiis magnam sequi inventore ipsa?
-        Molestiae iure nesciunt laboriosam sint expedita perspiciatis quibusdam vero aut dignissimos, veniam laborum dicta ipsam rem doloremque totam vitae, ullam ratione repellendus eligendi eos? Velit quas molestias minima libero id.
-        Tempore totam doloribus explicabo inventore voluptatum est mollitia optio numquam iure doloremque. Eos quas recusandae necessitatibus eveniet impedit possimus asperiores nostrum quos cupiditate corrupti iure ea, debitis doloribus aperiam dicta!
+        <div id="dropdown1">Klik på knappen nedenfor:<ul>
+            <li>Har du <b>Apple:</b><br><br><a href="https://apps.apple.com/dk/app/e-boks-dk/id482926022">
+                <button class="apple">E-boks Apple</button>
+            </a></li>
+
+            <br><br><li>Har du <b>Android</b><br>(Samsung, Huawei, OnePLus)<br><br>
+                <button class="android" onclick="android()">E-boks Android</button>
+            </li>
+        </ul>
         </div>
         
         <section id="section2" onclick=dropDown2()>
-            <p><b>2.</b> Hvor kan jeg læse min Digital Post</p>
+            <p><b>2.</b> Log på E-boks</p>
             <img id="img2" src="img/dropdown.png" alt="Elevator icon">
         </section>
         <div id="dropdown2"></div>
@@ -53,7 +52,7 @@
         <div id="dropdown4"></div>
 
         <section id="section5" onclick=dropDown5()>
-            <p><b>5.</b> Få adgang til Digital Post med udenlansk eID</p>
+            <p><b>5.</b> Giv en anden læseadgang til din  E-boks</p>
             <img id="img5" src="img/dropdown.png" alt="Done icon">
         </section>
         <div id="dropdown5"></div>
@@ -66,10 +65,14 @@
     </article>
 
     <footer>
-        <p class="buttontext">har du brug for mere hjælp?</p>
+        <!-- <p class="buttontext">har du brug for mere hjælp?</p>
         <div class="buttons">
-            <button id="nej"><b>NEJ</b><br>(Gå til hjem)</button>
-            <button id="ja"><b>JA</b><br>(Næste skridt)</button>
+            <button id="nej">
+                <img src="img/lesstext.png" alt="">Læs mindre
+            </button>
+            <button id="ja">
+                <img src="img/moretext.png" alt="">Læs mere
+            </button> -->
         </div>
     </footer>
 
@@ -78,6 +81,10 @@
     </div>
 
     <script>
+        function android() {
+            window.location.href = 'https://play.google.com/store/search?q=eboks&c=apps';
+        }
+
         function dropDown1() {
             const img = document.getElementById('img1');
             const headerParagraph = document.querySelector('header p');
