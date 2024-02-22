@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="css/eboks.css">
     <link rel="stylesheet" href="css/overlay.css">
     <script src = "js/overlay.js"></script>
+    <script src = "js/dropdown.js"></script>
+    <script src = "js/scroll.js"></script>
 </head>
 
 <body>
@@ -22,22 +24,39 @@
             <p><b>1.</b> Sådan finder du E-boks APP'en på din telefon/tablet</p>
             <img id="img1" src="img/dropdown.png" alt="Information icon">
         </section>
-        <div id="dropdown1">Klik på knappen nedenfor:<ul>
-            <li>Har du <b>Apple:</b><br><br><a href="https://apps.apple.com/dk/app/e-boks-dk/id482926022">
-                <button class="apple">E-boks Apple</button>
-            </a></li>
+        <div id="dropdown1">Klik på knappen nedenfor:
+            <ul>
+                <li>
+                    Har du <b>Apple:</b>
+                    <button onclick=android() class="apple">E-boks Apple</button>
+                </li>
 
-            <br><br><li>Har du <b>Android</b><br>(Samsung, Huawei, OnePLus)<br><br>
-                <button class="android" onclick="android()">E-boks Android</button>
-            </li>
-        </ul>
+                <li>
+                    Har du <b>Android</b><br>(Samsung, Huawei, OnePLus)
+                    <button onclick="android()" class="android">E-boks Android</button>
+                </li>
+            </ul>
         </div>
         
         <section id="section2" onclick=dropDown2()>
             <p><b>2.</b> Log på E-boks</p>
             <img id="img2" src="img/dropdown.png" alt="Elevator icon">
         </section>
-        <div id="dropdown2"></div>
+        <div id="dropdown2">
+            <ul>
+                <li>
+                    Åben E-boks app'en og skriv dit personnummer (CPR-nr.) 
+                    I feltet hvor der står: <br><b>Dit personnummer</b>
+                </li>
+                <li>
+                    Skriv derefter din private adgangskode i feltet: 
+                    Adgangskode
+                </li>
+                <li>
+                    Du er herefter logget på E-boks
+                </li>
+            </ul>
+        </div>
         
         <section id="section3" onclick=dropDown3()>
             <p><b>3.</b> Jeg kan ikke se min offentlige post i e-Boks</p>
@@ -65,14 +84,14 @@
     </article>
 
     <footer>
-        <!-- <p class="buttontext">har du brug for mere hjælp?</p>
-        <div class="buttons">
-            <button id="nej">
+        <p id="buttontext" class="buttontext">har du brug for mere hjælp?</p>
+        <div id="buttons" class="buttons">
+            <button onclick="scrollUp()" id="nej">
                 <img src="img/lesstext.png" alt="">Læs mindre
             </button>
-            <button id="ja">
+            <button onclick="scrollDown()" id="ja">
                 <img src="img/moretext.png" alt="">Læs mere
-            </button> -->
+            </button>
         </div>
     </footer>
 
@@ -80,210 +99,9 @@
         <div id="overlayText">Tryk på skærmen</div>
     </div>
 
-    <script>
-        function android() {
-            window.location.href = 'https://play.google.com/store/search?q=eboks&c=apps';
-        }
+<script>
 
-        function dropDown1() {
-            const img = document.getElementById('img1');
-            const headerParagraph = document.querySelector('header p');
-            const section = document.getElementById('section1');
-            const footer = document.querySelector('footer');
-            const dd = document.getElementById('dropdown1');
-            const allSectionsExceptTheSection = document.querySelectorAll('section:not(#section1)');
-            
-            if (dd.style.display === "flex") { // If dropdown is already displayed, reverse the effects
-                headerParagraph.innerHTML = "Hvad har du brug for hjælp til?<br>Tryk på pilen i det felt du vil læse mere om";
-                img.style.transform = "rotate(0deg)";
-                section.style.marginBottom= "";
-                section.style.borderRadius= "";
-                section.style.borderBottom= "";
-                footer.style.borderTop= "";
-                footer.style.backgroundColor= "";
-                dd.style.display= "none";
-                allSectionsExceptTheSection.forEach(section => {
-                    section.style.display = "flex"; // Show all sections again
-                });
-            } else {
-                headerParagraph.textContent = "Tryk på pilen igen for at vende tilbage til oversigten";
-                img.style.transform = "rotate(90deg)";
-                section.style.marginBottom= "0";
-                section.style.borderRadius= "5px 5px 0px 0px";
-                section.style.borderBottom= "solid 3px rgba(44, 41, 41, 0.7)";
-                dd.style.display= "flex";
-                allSectionsExceptTheSection.forEach(section => {
-                    section.style.display = "none"; // Hide all other sections
-                });
-            }
-        }
-            
-        function dropDown2() {
-            const img = document.getElementById('img2');
-            const headerParagraph = document.querySelector('header p');
-            const section = document.getElementById('section2');
-            const footer = document.querySelector('footer');
-            const dd = document.getElementById('dropdown2');
-            const allSectionsExceptTheSection = document.querySelectorAll('section:not(#section2)');
-            
-            if (dd.style.display === "flex") { // If dropdown is already displayed, reverse the effects
-                headerParagraph.innerHTML = "Hvad har du brug for hjælp til?<br>Tryk på pilen i det felt du vil læse mere om";
-                img.style.transform = "rotate(0deg)";
-                section.style.marginBottom= "";
-                section.style.borderRadius= "";
-                section.style.borderBottom= "";
-                footer.style.borderTop= "";
-                footer.style.backgroundColor= "";
-                dd.style.display= "none";
-                allSectionsExceptTheSection.forEach(section => {
-                    section.style.display = "flex"; // Show all sections again
-                });
-            } else {
-                headerParagraph.textContent = "Tryk på pilen igen for at vende tilbage til oversigten";
-                img.style.transform = "rotate(90deg)";
-                section.style.marginBottom= "0";
-                section.style.borderRadius= "5px 5px 0px 0px";
-                section.style.borderBottom= "solid 3px rgba(44, 41, 41, 0.7)";
-                dd.style.display= "flex";
-                allSectionsExceptTheSection.forEach(section => {
-                    section.style.display = "none"; // Hide all other sections
-                });
-            }
-        }
-            
-        function dropDown3() {
-            const img = document.getElementById('img3');
-            const headerParagraph = document.querySelector('header p');
-            const section = document.getElementById('section3');
-            const footer = document.querySelector('footer');
-            const dd = document.getElementById('dropdown3');
-            const allSectionsExceptTheSection = document.querySelectorAll('section:not(#section3)');
-            
-            if (dd.style.display === "flex") { // If dropdown is already displayed, reverse the effects
-                headerParagraph.innerHTML = "Hvad har du brug for hjælp til?<br>Tryk på pilen i det felt du vil læse mere om";
-                img.style.transform = "rotate(0deg)";
-                section.style.marginBottom= "";
-                section.style.borderRadius= "";
-                section.style.borderBottom= "";
-                footer.style.borderTop= "";
-                footer.style.backgroundColor= "";
-                dd.style.display= "none";
-                allSectionsExceptTheSection.forEach(section => {
-                    section.style.display = "flex"; // Show all sections again
-                });
-            } else {
-                headerParagraph.textContent = "Tryk på pilen igen for at vende tilbage til oversigten";
-                img.style.transform = "rotate(90deg)";
-                section.style.marginBottom= "0";
-                section.style.borderRadius= "5px 5px 0px 0px";
-                section.style.borderBottom= "solid 3px rgba(44, 41, 41, 0.7)";
-                dd.style.display= "flex";
-                allSectionsExceptTheSection.forEach(section => {
-                    section.style.display = "none"; // Hide all other sections
-                });
-            }
-        }
-            
-        function dropDown4() {
-            const img = document.getElementById('img4');
-            const headerParagraph = document.querySelector('header p');
-            const section = document.getElementById('section4');
-            const footer = document.querySelector('footer');
-            const dd = document.getElementById('dropdown4');
-            const allSectionsExceptTheSection = document.querySelectorAll('section:not(#section4)');
-            
-            if (dd.style.display === "flex") { // If dropdown is already displayed, reverse the effects
-                headerParagraph.innerHTML = "Hvad har du brug for hjælp til?<br>Tryk på pilen i det felt du vil læse mere om";
-                img.style.transform = "rotate(0deg)";
-                section.style.marginBottom= "";
-                section.style.borderRadius= "";
-                section.style.borderBottom= "";
-                footer.style.borderTop= "";
-                footer.style.backgroundColor= "";
-                dd.style.display= "none";
-                allSectionsExceptTheSection.forEach(section => {
-                    section.style.display = "flex"; // Show all sections again
-                });
-            } else {
-                headerParagraph.textContent = "Tryk på pilen igen for at vende tilbage til oversigten";
-                img.style.transform = "rotate(90deg)";
-                section.style.marginBottom= "0";
-                section.style.borderRadius= "5px 5px 0px 0px";
-                section.style.borderBottom= "solid 3px rgba(44, 41, 41, 0.7)";
-                dd.style.display= "flex";
-                allSectionsExceptTheSection.forEach(section => {
-                    section.style.display = "none"; // Hide all other sections
-                });
-            }
-        }
-            
-        function dropDown5() {
-            const img = document.getElementById('img5');
-            const headerParagraph = document.querySelector('header p');
-            const section = document.getElementById('section5');
-            const footer = document.querySelector('footer');
-            const dd = document.getElementById('dropdown5');
-            const allSectionsExceptTheSection = document.querySelectorAll('section:not(#section5)');
-            
-            if (dd.style.display === "flex") { // If dropdown is already displayed, reverse the effects
-                headerParagraph.innerHTML = "Hvad har du brug for hjælp til?<br>Tryk på pilen i det felt du vil læse mere om";
-                img.style.transform = "rotate(0deg)";
-                section.style.marginBottom= "";
-                section.style.borderRadius= "";
-                section.style.borderBottom= "";
-                footer.style.borderTop= "";
-                footer.style.backgroundColor= "";
-                dd.style.display= "none";
-                allSectionsExceptTheSection.forEach(section => {
-                    section.style.display = "flex"; // Show all sections again
-                });
-            } else {
-                headerParagraph.textContent = "Tryk på pilen igen for at vende tilbage til oversigten";
-                img.style.transform = "rotate(90deg)";
-                section.style.marginBottom= "0";
-                section.style.borderRadius= "5px 5px 0px 0px";
-                section.style.borderBottom= "solid 3px rgba(44, 41, 41, 0.7)";
-                dd.style.display= "flex";
-                allSectionsExceptTheSection.forEach(section => {
-                    section.style.display = "none"; // Hide all other sections
-                });
-            }
-        }
-            
-        function dropDown6() {
-            const img = document.getElementById('img6');
-            const headerParagraph = document.querySelector('header p');
-            const section = document.getElementById('section6');
-            const footer = document.querySelector('footer');
-            const dd = document.getElementById('dropdown6');
-            const allSectionsExceptTheSection = document.querySelectorAll('section:not(#section6)');
-            
-            if (dd.style.display === "flex") { // If dropdown is already displayed, reverse the effects
-                headerParagraph.innerHTML = "Hvad har du brug for hjælp til?<br>Tryk på pilen i det felt du vil læse mere om";
-                img.style.transform = "rotate(0deg)";
-                section.style.marginBottom= "";
-                section.style.borderRadius= "";
-                section.style.borderBottom= "";
-                footer.style.borderTop= "";
-                footer.style.backgroundColor= "";
-                dd.style.display= "none";
-                allSectionsExceptTheSection.forEach(section => {
-                    section.style.display = "flex"; // Show all sections again
-                });
-            } else {
-                headerParagraph.textContent = "Tryk på pilen igen for at vende tilbage til oversigten";
-                img.style.transform = "rotate(90deg)";
-                section.style.marginBottom= "0";
-                section.style.borderRadius= "5px 5px 0px 0px";
-                section.style.borderBottom= "solid 3px rgba(44, 41, 41, 0.7)";
-                dd.style.display= "flex";
-                allSectionsExceptTheSection.forEach(section => {
-                    section.style.display = "none"; // Hide all other sections
-                });
-            }
-        }
-        
-    </script>
+</script>
 
 </body>
 </html>
