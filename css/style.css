@@ -1,8 +1,23 @@
-body{
-    font-family: "MADE Outer Sans", sans-serif;
+:root {
+    --bgcol: #f0ffe3;
+    --scol: #ffffff;
+    --textcol: #2c2929;
+  }
+
+* {
     box-sizing: border-box;
-    background-color: #fffd7d;
-    color: #2c2929;
+}
+
+body {
+    font-family: "MADE Outer Sans", sans-serif;
+    background-color: var(--bgcol);
+    color: var(--textcol);
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    min-height: 100vh;
+    height: 100%;
+    /* border: solid 2px red; */
 }
 
 h1{
@@ -42,3 +57,4 @@ article img {
     width: auto;
     margin: 1em;
 }
+
