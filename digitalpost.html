@@ -105,7 +105,7 @@
     </article>
 
     <footer>
-        <p id="buttontext" class="buttontext">har du brug for mere hjælp?</p>
+        <!-- <p id="buttontext" class="buttontext">har du brug for mere hjælp?</p> -->
         <div id="buttons" class="buttons">
             <button onclick="scrollUp()" id="nej">
                 <img src="img/lesstext.png" alt="">Læs mindre
@@ -128,7 +128,7 @@
         const footer = document.querySelector('footer');
         const dd = document.getElementById('dropdown1');
         const allSectionsExceptTheSection = document.querySelectorAll('section:not(#section1)');
-        const buttontext = document.getElementById('buttontext')
+        // const buttontext = document.getElementById('buttontext')
         const buttons = document.getElementById('buttons')
         
         if (dd.style.display === "flex") { // If dropdown is already displayed, reverse the effects
@@ -140,7 +140,7 @@
             footer.style.borderTop= "";
             footer.style.backgroundColor= "";
             buttons.style.display= "none";
-            buttontext.style.display= "none";
+            // buttontext.style.display= "none";
             dd.style.display= "none";
             allSectionsExceptTheSection.forEach(section => {
                 section.style.display = "flex"; // Show all sections again
@@ -152,7 +152,7 @@
             section.style.borderRadius= "5px 5px 0px 0px";
             section.style.borderBottom= "solid 3px rgba(44, 41, 41, 0.7)";
             buttons.style.display= "flex";
-            buttontext.style.display= "flex";
+            // buttontext.style.display= "flex";
             dd.style.display= "flex";
             allSectionsExceptTheSection.forEach(section => {
                 section.style.display = "none"; // Hide all other sections
